@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jayden Chung · Engineering Portfolio</title>
+<meta name="description" content="Engineering portfolio of Jayden Chung, mechanical engineering student at the University of Waterloo and UW Formula Electric chassis team member.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root { --accent: #1f5f99; --ink: #1c1c1c; --muted: #666; --rule: #e2e2e2; --bg: #fff; --soft: #f6f7f9; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  nav { position: sticky; top: 0; background: rgba(255,255,255,.95); border-bottom: 1px solid var(--rule); z-index: 10; }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; gap: 16px; }
+  nav .name { font-weight: 700; color: var(--ink); white-space: nowrap; flex-shrink: 0; }
+  nav .links { display: flex; gap: 18px; font-size: 15px; overflow-x: auto; white-space: nowrap; }
+  nav .links a { color: var(--muted); }
+
+  header { padding: 64px 0 48px; }
+  .hero { display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: center; }
+  .kicker { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+  h1 { font-size: 44px; line-height: 1.1; margin: 8px 0 6px; }
+  .sub { color: var(--muted); font-size: 18px; margin: 0 0 20px; }
+  header p { font-size: 17px; max-width: 720px; }
+  .hero img { width: 100%; border-radius: 6px; aspect-ratio: 3/4; object-fit: cover; object-position: center 20%; }
+  .contact { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .btn { display: inline-block; padding: 9px 16px; border: 1.5px solid var(--accent); border-radius: 4px; font-size: 15px; font-weight: 600; }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn:hover { text-decoration: none; opacity: .88; }
+
+  section.project { padding: 56px 0; border-top: 1px solid var(--rule); }
+  h2 { font-size: 32px; margin: 6px 0 8px; line-height: 1.2; }
+  .lede { font-size: 19px; margin: 0 0 10px; }
+  .skills { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+  .skills b { color: var(--ink); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  h3 { font-size: 16px; color: var(--accent); margin: 0 0 4px; }
+  .text p, .text ul { margin: 0 0 18px; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+
+  figure { margin: 0; }
+  figure img, figure video { width: 100%; display: block; border-radius: 4px; background: var(--soft); }
+  figcaption { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .gallery img, .gallery video { aspect-ratio: 3/4; object-fit: cover; }
+  .gallery.two { grid-template-columns: repeat(2, 1fr); }
+  .gallery.two img { aspect-ratio: 4/3; }
+
+  .anno { position: relative; }
+  .anno svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .anno text { font: 600 15px -apple-system, Arial, sans-serif; fill: #1c1c1c; }
+  .anno line { stroke: #1c1c1c; stroke-width: 1.6; }
+  .anno circle { fill: #1c1c1c; }
+
+  .vid { position: relative; cursor: pointer; }
+  .vid .play { position: absolute; left: 50%; top: calc(50% - 14px); width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(0,0,0,.55); pointer-events: none; transition: opacity .2s; }
+  .vid .play::after { content: ""; position: absolute; left: 26px; top: 20px; border-style: solid; border-width: 12px 0 12px 20px; border-color: transparent transparent transparent #fff; }
+  .vid.playing .play { opacity: 0; }
+  @media (max-width: 760px) { .wrap { padding: 0 16px; } }
+  footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
+
+  @media (max-width: 760px) {
+    header { padding: 36px 0 28px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero img { max-width: 260px; }
+    h1 { font-size: 34px; }
+    h2 { font-size: 26px; }
+    .cols { grid-template-columns: 1fr; gap: 24px; }
+    .gallery, .gallery.two { grid-template-columns: 1fr 1fr; }
+    nav .links { gap: 14px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#top">Jayden Chung</a>
+    <div class="links">
+      <a href="#jig">Weld Jig</a>
+      <a href="#kevlar">Dash Panel</a>
+      <a href="#bike">Wheelset</a>
+      <a href="#trunnion">CAD</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap hero">
+    <div>
+      <div class="kicker">Engineering Portfolio</div>
+      <h1>Jayden Chung</h1>
+      <div class="sub">Mechanical Engineering, University of Waterloo</div>
+      <p>I'm a first-year mechanical engineering student at the University of Waterloo and a chassis team member on UW Formula Electric. I learn best hands-on, and I enjoy taking an idea from CAD to a real part I can hold. Working as an assistant automechanic got me interested in cars, but I'm open to any field where I can build things that make people's daily lives better.</p>
+      <p>Outside of school, I swim, bike and run, and I'm working toward an Ironman one day. Before university, I swam competitively for eight years, racing at the SwimBC Provincial Championships, and gave back to my club by coaching younger swimmers.</p>
+      <div class="contact">
+        <a class="btn primary" href="mailto:jayden.chung@uwaterloo.ca">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/jayden-chung">LinkedIn</a>
+        <a class="btn" href="Jayden_Chung_Portfolio.pdf">Download PDF</a>
+      </div>
+    </div>
+    <img src="img/layup_ppe.jpg" alt="Jayden in shop PPE during a composite layup">
+  </div>
+</header>
+
+<section class="project" id="jig">
+  <div class="wrap">
+    <div class="kicker">UW Formula Electric · Chassis Team · Oct. 2026</div>
+    <h2>Front Bulkhead Weld Jig</h2>
+    <p class="lede">Designed and built a laser-cut HDF jig that holds the front bulkhead tubes for welding.</p>
+    <div class="skills"><b>Skills:</b> SolidWorks Part and Assembly Modelling · DXF Prep for Laser Cutting · Vertical Bandsaw · Tube Fit-Up</div>
+
+    <div class="cols">
+      <figure class="anno">
+        <div style="position:relative">
+          <img src="img/jig_cad.jpg" alt="SolidWorks model of the weld jig with frame tubes">
+          <svg viewBox="0 0 586 717" preserveAspectRatio="none">
+            <circle cx="130" cy="255" r="4"/><line x1="130" y1="255" x2="70" y2="140"/>
+            <text x="8" y="130">Slotted cross plates</text>
+            <circle cx="365" cy="282" r="4"/><line x1="365" y1="282" x2="470" y2="215"/>
+            <text x="400" y="205">Bulkhead tubes</text>
+            <circle cx="455" cy="610" r="4"/><line x1="455" y1="610" x2="440" y2="688"/>
+            <text x="380" y="706">HDF base plate</text>
+          </svg>
+        </div>
+        <figcaption>SolidWorks assembly: the jig (blue) with the bulkhead tubes (red).</figcaption>
+      </figure>
+      <div class="text">
+        <h3>Why it was needed</h3>
+        <p>The bulkhead tubes have to stay in exact position while they're welded. Without a fixture, they shift and the bulkhead ends up out of shape.</p>
+        <h3>My role</h3>
+        <ul>
+          <li>Designed the slotted cross plates that form the "#" grid, with clearance for laser cutting tolerance and tube fit-up.</li>
+          <li>Prepared the DXF files and plate quantities for the Rapid Prototyping Centre.</li>
+          <li>Cut the HDF sheet for the base plate down on a vertical bandsaw so it would fit in the laser cutter.</li>
+          <li>Assembled the jig and test-fit the frame tubes.</li>
+        </ul>
+        <h3>Challenge</h3>
+        <p>The team needed the jig within two days, and I had only started learning SolidWorks the week before. I picked up reference planes and cut features through my own research and help from the team lead, and built the jig in one day, ahead of the deadline.</p>
+        <h3>Result</h3>
+        <p>The plates slotted together as modelled. The hand-cut tubes were snug, so I sanded them until they seated.</p>
+        <h3>Next time</h3>
+        <p>I'd measure the hand-cut tubes before finalizing the slot clearances, so they drop in without sanding.</p>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure class="vid"><video src="video/laser_cutting.mp4" poster="video/laser_poster.jpg" muted loop playsinline preload="metadata"></video><span class="play" aria-hidden="true"></span><figcaption>Laser cutting the HDF cross plates.</figcaption></figure>
+      <figure><img src="img/jig_plates.jpg" alt="Laser-cut HDF plates" loading="lazy"><figcaption>Cut plates before assembly.</figcaption></figure>
+      <figure><img src="img/jig_assembled.jpg" alt="Assembled jig with tubes" loading="lazy"><figcaption>Assembled grid with the bulkhead tubes test-fit.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="project" id="kevlar">
+  <div class="wrap">
+    <div class="kicker">UW Formula Electric · Chassis Team · Sept. 2026</div>
+    <h2>Kevlar–Balsa Sandwich Dash Panel</h2>
+    <p class="lede">Helped build a Kevlar–balsa test panel to stiffen the car's flexing dashboard.</p>
+    <div class="skills"><b>Skills:</b> Composite Layup · Vacuum Bagging · Epoxy Mixing · Drilling and Fastener Testing · Shop PPE</div>
+
+    <div class="cols">
+      <div class="text">
+        <h3>Why it was needed</h3>
+        <p>Drivers reported that last year's all-Kevlar dashboard flexed when they pressed the buttons. The team wanted to test whether a balsa core between Kevlar skins would stiffen the panel.</p>
+        <h3>My role</h3>
+        <p>This was my first task on the team, and I helped with every step of the layup:</p>
+        <ul>
+          <li>Prepped the table by scraping it clean and applying 4 coats of Frekote mould release, 15 minutes apart.</li>
+          <li>Cut the Kevlar sheets (3 per side) with all plies at 0° fibre orientation, and weighed them to set the epoxy and hardener quantities.</li>
+          <li>Laid up the sheets around the balsa core, then vacuum bagged the panel with peel ply, breather and tacky tape.</li>
+          <li>Drilled the cured panel and tightened fasteners through it to check the core for crushing.</li>
+        </ul>
+      </div>
+      <div class="text">
+        <figure style="margin-bottom:20px"><img src="img/vacuum_bag.jpg" alt="Panels under vacuum bag"><figcaption>Panels under vacuum, with peel ply and breather.</figcaption></figure>
+        <h3>Challenge</h3>
+        <p>There were a lot of steps to get right in order. The bag sealed so tightly that the vacuum tubing cut through the plastic, so we patched the leak with putty to hold vacuum.</p>
+        <h3>Result</h3>
+        <p>With fasteners tightened hard through it, the core compressed less than last year's all-Kevlar panel. The project and team leads see it as a strong option for the car, pending driver feedback.</p>
+        <h3>Next time</h3>
+        <p>Mix enough epoxy up front. We ran low near the end, and one layer came off after curing.</p>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure><img src="img/kevlar_cutting.jpg" alt="Cutting Kevlar sheets" loading="lazy"><figcaption>Cutting Kevlar sheets to size.</figcaption></figure>
+      <figure><img src="img/balsa_core.jpg" alt="Balsa core on Kevlar" loading="lazy"><figcaption>Balsa core placed on the Kevlar layers.</figcaption></figure>
+      <figure class="vid"><video src="video/drilling_test.mp4" poster="video/drilling_poster.jpg" muted loop playsinline preload="metadata"></video><span class="play" aria-hidden="true"></span><figcaption>Drilling the cured panel for fastener testing.</figcaption></figure>
+      <figure><img src="img/kevlar_marking.jpg" alt="Marking Kevlar for cutting" loading="lazy"><figcaption>Marking out the Kevlar sheets.</figcaption></figure>
+      <figure><img src="img/vacuum_pump.jpg" alt="Vacuum pump and gauges" loading="lazy"><figcaption>Vacuum pump and gauges used to check for leaks.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="project" id="bike">
+  <div class="wrap">
+    <div class="kicker">Personal Project · July–Aug. 2026</div>
+    <h2>Carbon Wheelset Upgrade</h2>
+    <p class="lede">Sourced and installed a 50 mm deep tubeless carbon wheelset on my Giant TCR, saving about 400 g.</p>
+    <div class="skills"><b>Skills:</b> Component Research · Mechanical Assembly · Tubeless Setup</div>
+
+    <div class="gallery two" style="margin:0 0 32px">
+      <figure><img src="img/bike_before.jpg" alt="Bike with stock wheels"><figcaption>Before: stock wheelset.</figcaption></figure>
+      <figure><img src="img/bike_after.jpg" alt="Bike with carbon wheels"><figcaption>After: Elitewheels Ent 2.0 (50 mm) with Pirelli P Zero tires.</figcaption></figure>
+    </div>
+
+    <div class="cols">
+      <div class="text">
+        <h3>What I did</h3>
+        <ul>
+          <li>Compared carbon wheelsets on price, weight and specs such as thru-axle size, and chose the Elitewheels Ent 2.0.</li>
+          <li>Sourced the full tubeless setup: tires, rim tape, Stan's tubeless sealant, Presta valves, a sealant injector and tire levers.</li>
+          <li>Transferred the cassette, rotors and thru-axles, then checked frame, rotor lockring and cassette clearances.</li>
+          <li>Maintain and fit the bike myself: cleaning and lubricating the drivetrain, and angling the handlebars for a more natural hand position.</li>
+        </ul>
+      </div>
+      <div class="text">
+        <h3>Challenge</h3>
+        <p>Finding compatible parts took a lot of research, and seating the tight tubeless tires was the hardest step.</p>
+        <h3>Next time</h3>
+        <p>I missed that my 6-bolt rotors don't fit Centerlock hubs and had to order adapters. Next time I'd check every interface and order all parts at once.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project" id="trunnion">
+  <div class="wrap">
+    <div class="kicker">Coursework · Oct. 2026</div>
+    <h2>Configurable Brake Balance Bar Trunnion</h2>
+    <p class="lede">Built in SolidWorks by sketching half the profile, revolving it, adding and mirroring the grooves, then cutting the holes with Hole Wizard and extruded cuts. Global variables drive the shaft length and the shaft and brace diameters, so one model covers several configurations.</p>
+    <div class="gallery two" style="margin-top:24px">
+      <figure><img src="img/trunnion_short.jpg" alt="Short configuration" loading="lazy"><figcaption>Short configuration.</figcaption></figure>
+      <figure><img src="img/trunnion_long.jpg" alt="Long configuration" loading="lazy"><figcaption>Long configuration from the same model.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Jayden Chung · <a href="mailto:jayden.chung@uwaterloo.ca">jayden.chung@uwaterloo.ca</a> · <a href="https://www.linkedin.com/in/jayden-chung">LinkedIn</a></div>
+</footer>
+
+<script>
+document.querySelectorAll('figure.vid').forEach(function (fig) {
+  var v = fig.querySelector('video');
+  fig.addEventListener('click', function () {
+    if (v.paused) { v.play(); } else { v.pause(); }
+  });
+  v.addEventListener('play', function () { fig.classList.add('playing'); });
+  v.addEventListener('pause', function () { fig.classList.remove('playing'); });
+});
+</script>
+</body>
+</html>
